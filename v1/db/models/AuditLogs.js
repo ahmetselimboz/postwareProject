@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema(
   {
     level: String,
-    email: String,
+    username: String,
     location: String,
     proc_type: String,
     log: String,

@@ -1,7 +1,7 @@
 const passport = require("passport");
 const { ExtractJwt, Strategy } = require("passport-jwt");
 const env = require("../config/environments");
-const User = require("../db/models/User");
+const User = require("../db/models/Users");
 
 module.exports = () => {
   let strategy = new Strategy(
