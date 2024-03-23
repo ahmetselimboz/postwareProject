@@ -36,4 +36,4 @@ class Contacts extends mongoose.Model {}
 
 schema.loadClass(Contacts);
 
-module.exports = mongoose.model("contacts", schema);
+module.exports = mongoose.model("contact", schema);

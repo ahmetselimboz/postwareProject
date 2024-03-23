@@ -15,4 +15,4 @@ class Subscribers extends mongoose.Model {}
 
 schema.loadClass(Subscribers);
 
-module.exports = mongoose.model("subscribers", schema);
+module.exports = mongoose.model("subscriber", schema);

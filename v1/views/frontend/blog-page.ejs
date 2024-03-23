@@ -1,0 +1,201 @@
+
+
+
+<section class="section wb">
+  <div class="container">
+    <div class="row d-flex flex-column align-items-center">
+      <div class="col-lg-9">
+        <div class="page-wrapper">
+          <div class="blog-title-area">
+            <ol class="breadcrumb hidden-xs-down">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item">
+                <a href="/category/?id=<%- category.id %>&p=1"><%- category.name %></a>
+              </li>
+              <li class="breadcrumb-item active"><%- resultPost.title %></li>
+            </ol>
+
+            <span class="color-aqua"><a href="/category/?id=<%- category.id %>&p=1" title=""><%- category.name %></a></span>
+
+            <h3><%- resultPost.title %></h3>
+
+            <div class="blog-meta big-meta">
+              <small><a href="/blog/<%- resultPost.id %>" title=""><%- resultPost.createdAt.toLocaleDateString('en-EN', { day:
+                  'numeric', month: 'long', year: 'numeric' }); %></a></small>
+              <small><a href="/author/?id=<%- user.id %>&p=1" title="">by <%- user.username %></a></small>
+              <small><i class="fa fa-eye"></i> <%- resultPost.click %></small>
+            </div>
+            <!-- end meta -->
+
+            <!-- end post-sharing -->
+          </div>
+          <!-- end title -->
+
+          <div class="post">
+            <img class="postImg" src="<%- resultPost.mainImg %>" alt="" />
+            <hr class="invis" />
+            <%- resultPost.content %>
+          </div>
+          <!-- end content -->
+
+          <div class="blog-title-area">
+            <div class="tag-cloud-single">
+              <span>Tags</span>
+              <% for( let index = 0; index < resultPost.tags.length; index++ ) {%>
+              <small><a href="/category/?id=<%- category.id %>&p=1&search=<%- resultPost.tags[index].tagName %>" title=""><%- resultPost.tags[index].tagName %></a></small>
+              <% } %>
+            </div>
+            <!-- end meta -->
+
+            <!-- end post-sharing -->
+          </div>
+          <!-- end title -->
+
+          <div class="row">
+            <!-- end col -->
+          </div>
+          <!-- end row -->
+
+          <hr class="invis1" />
+
+          <div class="custombox prevnextpost clearfix">
+            <div class="row">
+              <div class="col-lg-6">
+                <% if (prev) { %>
+                <div class="blog-list-widget">
+                  <div class="list-group">
+                    <a href="/blog/<%- prev.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="w-100 d-flex flex-row-reverse align-items-center justify-content-start text-right">
+                        <img src="<%- prev.mainImg %>" alt="" class="img-fluid float-right" style="width: 100px; height: 80px; object-fit: cover" />
+                        <div>
+                          <h5 class="mb-1"><%- prev.title %></h5>
+                          <small>Prev Post</small>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+              <!-- end col -->
+
+              <div class="col-lg-6">
+                <% if (next) { %>
+                <div class="blog-list-widget">
+                  <div class="list-group">
+                    <a href="/blog/<%- next.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="w-100 d-flex flex-row align-items-center justify-content-start">
+                        <img src="<%- next.mainImg %>" alt="" class="float-left" style="width: 100px; height: 80px; object-fit: cover" />
+                        <div>
+                          <h5 class="mb-1 text-left"><%- next.title %></h5>
+                          <small>Next Post</small>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end author-box -->
+
+          <hr class="invis1" />
+
+          <div class="custombox authorbox clearfix">
+            <h4 class="small-title">About author</h4>
+            <div class="row">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <img src="<%- user.photo %>" alt="" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover" />
+              </div>
+              <!-- end col -->
+
+              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                <h4>
+                  <a href="/author/?id=<%- user.id %>&p=1"><%- user.username %></a>
+                </h4>
+                <p><%- user.about %></p>
+
+                <div class="topsocial">
+                  <a href="  <%- user.urls.facebook %>" data-toggle="tooltip" data-placement="bottom" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+
+                  <a href="  <%- user.urls.twitter %>" data-toggle="tooltip" data-placement="bottom" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                  <a href="  <%- user.urls.instagram %>" data-toggle="tooltip" data-placement="bottom" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                  <a href="  <%- user.urls.linkedin %>" data-toggle="tooltip" data-placement="bottom" title="Website" target="_blank"><i class="fa fa-link"></i></a>
+                </div>
+                <!-- end social -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end author-box -->
+
+          <hr class="invis1" />
+
+          <div class="custombox clearfix">
+            <h4 class="small-title">You may also like</h4>
+            <div class="row">
+              <% for( let index = 0; index < data.length; index++ ) { %>
+              <div class="col-lg-6">
+                <div class="blog-box">
+                  <!-- end media -->
+
+                  <div class="post-media">
+                    <a href="/blog/<%- data[index].id %>" title="">
+                      <img src="<%- data[index].mainImg %>" alt="" class="" style="width: 364.7px; height: 200px; object-fit: cover" />
+                      <div class="hovereffect">
+                        <span class=""></span>
+                      </div>
+                      <!-- end hover -->
+                    </a>
+                  </div>
+                  <div class="blog-meta">
+                    <h4>
+                      <a href="/blog/<%- data[index].id %>" title=""><%- data[index].title %></a>
+                    </h4>
+                    <small><a href="/author/?id=<%- data[index].userId.id %>&p=1" title="">by <%- data[index].userId.username %></a></small>
+                    <small><a href="/category/?id=<%- data[index].categoryId.id %>&p=1" title=""><%- data[index].createdAt.toLocaleDateString('en-EN', {
+                        day: 'numeric', month: 'long', year: 'numeric' }); %></a></small>
+                  </div>
+
+                  <!-- end meta -->
+                </div>
+                <!-- end blog-box -->
+              </div>
+              <!-- end col -->
+              <% } %>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end custom-box -->
+        </div>
+        <!-- end page-wrapper -->
+      </div>
+      <!-- end col -->
+
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<input type="hidden" name="" value="<%- resultPost.id %>" id="resultPost" />
+<input type="hidden" id="input-title" value="<%- resultPost.title %>" />
+<script>
+  const resultPost = document.querySelector("#resultPost");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch("/article/" + resultPost.value + "/click", {
+        method: "POST",
+      })
+      .then((response) => response.text())
+      .then((message) => console.log(message))
+      .catch((error) => console.error(error));
+  });
+
+ // document.title = document.querySelector("#input-title").value + " | Posttware.com";
+</script>

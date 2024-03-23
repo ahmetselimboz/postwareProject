@@ -1,0 +1,702 @@
+<section class="section first-section">
+  <div class="container-fluid">
+    <div class="masonry-blog clearfix">
+      <div class="left-side">
+        <% if (popular[0]) { %>
+        <div class="masonry-box post-media">
+          <img src="<%- popular[0].mainImg %>" alt="" class="" style="width: 100%;height: 434px; object-fit: cover;">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-aqua"><a href="/category/?id=<%- popular[0].categoryId.id %>&p=1" title="">
+                    <%- popular[0].categoryId.name %>
+                  </a></span>
+                <h4><a href="/blog/<%- popular[0].id %>" title=""><%- popular[0].title %></a></h4>
+                <small><a><%- popular[0].createdAt.toLocaleDateString('en-EN', {
+                                       day: 'numeric',
+                                       month: 'long',
+                                       year: 'numeric'
+                                     }); %></a></small>
+                <small><a>
+                    by <%- popular[0].userId.username %>
+                  </a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div>
+        <% } else { %>
+        <div class="masonry-box post-media">
+          <img src="/frontend/upload/blog_masonry_01.jpg" alt="" class="img-fluid">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
+                <h4><a href="single.html" title="">The golden rules you need to know for a positive life</a></h4>
+                <small><a href="single.html" title="">24 July, 2017</a></small>
+                <small><a href="blog-author.html" title="">by Amanda</a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div>
+        <% } %>
+        <!-- end post-media -->
+      </div><!-- end left-side -->
+
+      <div class="center-side">
+        <% if (popular[1]) { %>
+        <div class="masonry-box post-media">
+          <img src="<%- popular[1].mainImg %>" alt="" style="width: 100%;height: 243px; object-fit: cover;">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-green"><a href="/category/?id=<%- popular[1].categoryId.id %>&p=1" title=""><%- popular[1].categoryId.name %></a></span>
+
+                <h4><a href="/blog/<%- popular[1].id %>" title=""><%- popular[1].title %></a></h4>
+                <small><a><%- popular[1].createdAt.toLocaleDateString('en-EN', {
+                                       day: 'numeric',
+                                       month: 'long',
+                                       year: 'numeric'
+                                     }); %></a></small>
+                <small><a>by <%- popular[1].userId.username %></a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+        <% } else { %>
+        <div class="masonry-box post-media">
+          <img src="/frontend/upload/blog_masonry_02.jpg" alt="" class="img-fluid">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+
+                <span class="bg-green"><a href="blog-category-01.html" title="">Travel</a></span>
+                <h4><a href="single.html" title="">5 places you should see</a></h4>
+                <small><a href="single.html" title="">24 July, 2017</a></small>
+                <small><a href="blog-author.html" title="">by Amanda</a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div>
+        <% } %>
+
+        <% if (popular[2]) { %>
+        <div class="masonry-box small-box post-media">
+          <img src="<%- popular[2].mainImg %>" alt="" style="width: 100%;height: 181.5px; object-fit: cover;">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-green"><a href="/category/?id=<%- popular[2].categoryId.id %>&p=1" title=""><%- popular[2].categoryId.name %></a></span>
+
+
+                <h4><a href="/blog/<%- popular[2].id %>" title=""><%- popular[2].title %></a></h4>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+
+        <% } else { %>
+        <div class="masonry-box small-box post-media">
+          <img src="/frontend/upload/blog_masonry_03.jpg" alt="" class="img-fluid">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-green"><a href="/frontend/blog-category-01.html" title="">Travel</a></span>
+                <h4><a href="/frontend/single.html" title="">Separate your place with exotic hotels</a></h4>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+        <% } %>
+
+        <% if (popular[3]) { %>
+        <div class="masonry-box small-box post-media">
+          <img src="<%- popular[3].mainImg %>" alt="" style="width: 100%;height: 181.5px; object-fit: cover;">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-green"><a href="/category/?id=<%- popular[3].categoryId.id %>&p=1" title=""><%- popular[3].categoryId.name %></a></span>
+
+                <h4><a href="/blog/<%- popular[3].id %>" title=""><%- popular[3].title %></a></h4>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+
+        <% } else { %>
+        <div class="masonry-box small-box post-media">
+          <img src="/frontend/upload/blog_masonry_03.jpg" alt="" class="img-fluid">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-green"><a href="/frontend/blog-category-01.html" title="">Travel</a></span>
+                <h4><a href="/frontend/single.html" title="">Separate your place with exotic hotels</a></h4>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+        <% } %>
+
+      </div>
+
+      <% if (popular[4]) { %>
+      <div class="right-side hidden-md-down">
+        <div class="masonry-box post-media">
+          <img src="<%- popular[4].mainImg %>" alt="" style="width: 100%;height: 434px; object-fit: cover;">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-aqua"><a href="/category/?id=<%- popular[4].categoryId.id %>&p=1" title=""><%- popular[4].categoryId.name %></a></span>
+
+
+                <h4><a href="/blog/<%- popular[4].id %>" title=""><%- popular[4].title %></a></h4>
+                <small><a href="/blog/<%- popular[4].id %>" title=""><%- popular[4].createdAt.toLocaleDateString('en-EN', {
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                      }); %></a></small>
+
+                <small><a>
+                    by <%- popular[4].userId.username %>
+
+                  </a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+      </div><!-- end right-side -->
+      <% } else { %>
+      <div class="right-side hidden-md-down">
+        <div class="masonry-box post-media">
+          <img src="/frontend/upload/blog_masonry_05.jpg" alt="" class="img-fluid">
+          <div class="shadoweffect">
+            <div class="shadow-desc">
+              <div class="blog-meta">
+                <span class="bg-aqua"><a href="/frontend/blog-category-01.html" title="">Lifestyle</a></span>
+                <h4><a href="/frontend/single.html" title="">The rules you need to know for a happy union</a></h4>
+                <small><a href="/frontend/single.html" title="">03 July, 2017</a></small>
+                <small><a href="/frontend/blog-author.html" title="">by Jessica</a></small>
+              </div><!-- end meta -->
+            </div><!-- end shadow-desc -->
+          </div><!-- end shadow -->
+        </div><!-- end post-media -->
+      </div><!-- end right-side -->
+      <% } %>
+
+    </div><!-- end masonry -->
+  </div>
+</section>
+
+<% if (result[0]) { %>
+<% var result0 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[0].id) { %>
+<% result0.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+<% if (result[1]) { %>
+<% var result1 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[1].id) { %>
+<% result1.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+<% if (result[2]) { %>
+<% var result2 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[2].id) { %>
+<% result2.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+<% if (result[3]) { %>
+<% var result3 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[3].id) { %>
+<% result3.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+<% if (result[4]) { %>
+<% var result4 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[4].id) { %>
+<% result4.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+<% if (result[5]) { %>
+<% var result5 = []; %>
+<% for( let index = 0; index < post.length; index++ ) { %>
+<% if (post[index].categoryId.id == result[5].id) { %>
+<% result5.push(post[index]); %>
+<% } %>
+<% } %>
+<% } %>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="section-title">
+          <% if (result[0]) { %>
+          <h3 class="color-aqua"><a href="/category/?id=<%- result[0].id %>&p=1" title=""><%- result[0].name %></a></h3>
+
+          <% } else { %>
+          <h3 class="color-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></h3>
+
+          <% } %>
+        </div><!-- end title -->
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <% for( let index = 0; index < 2; index++ ) { %>
+            <% if (result0[index]) { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="/blog/<%- result0[index].id %>" title="">
+                  <img src="<%- result0[index].mainImg %>" alt="" style="width: 100%;height: 290px; object-fit: cover;">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta big-meta">
+                <h4><a href="/blog/<%- result0[index].id %>" title=""><%- result0[index].title %></a></h4>
+                <p><%- result0[index].desc.slice(0,180) %>...</p>
+                <small><a href="/category/?id=<%- result0[index].categoryId.id %>&p=1" title=""><%- result0[index].categoryId.name %></a></small>
+                <small><a href="/blog/<%- result0[index].id %>" title=""><%- result0[index].createdAt.toLocaleDateString('en-EN', {
+                                          day: 'numeric',
+                                          month: 'long',
+                                          year: 'numeric'
+                                        }); %></a></small>
+                <small><a href="/author/?id=<%- result0[index].userId.id %>&p=1" title="">by <%- result0[index].userId.username %></a></small>
+              </div><!-- end meta -->
+            </div>
+
+            <hr class="invis">
+            <% } else { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="single.html" title="">
+                  <img src="/frontend/upload/blog_05.jpg" alt="" class="img-fluid">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta big-meta">
+                <h4><a href="single.html" title="">title</a></h4>
+                <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
+                <small><a href="blog-category-01.html" title="">Lifestyle</a></small>
+                <small><a href="single.html" title="">24 July, 2017</a></small>
+                <small><a href="blog-author.html" title="">by Amanda</a></small>
+              </div><!-- end meta -->
+            </div>
+
+            <hr class="invis">
+            <% } %>
+
+            <% } %>
+
+
+          </div><!-- end col -->
+        </div><!-- end row -->
+      </div><!-- end col -->
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="section-title">
+          <% if (result[1]) { %>
+          <h3 class="color-pink"><a href="/category/?id=<%- result[1].id %>&p=1" title=""><%- result[1].name %></a></h3>
+          <% } else { %>
+          <h3 class="color-pink"><a href="blog-category-01.html" title="">Fashion</a></h3>
+          <% } %>
+        </div><!-- end title -->
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <% for( let index = 0; index < 2; index++ ) { %>
+            <% if (result1[index]) { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="/blog/<%- result1[index].id %>" title="">
+                  <img src="<%- result1[index].mainImg %>" alt="" style="width: 100%;height: 378px; object-fit: cover;">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="/blog/<%- result1[index].id %>" title=""><%- result1[index].title %></a></h4>
+                <small><a href="/category/?id=<%- result1[index].categoryId.id %>&p=1" title=""><%- result1[index].categoryId.name %></a></small>
+                <small><a href="/blog/<%- result1[index].id %>" title=""><%- result1[index].createdAt.toLocaleDateString('en-EN', {
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                      }); %></a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+
+            <hr class="invis">
+            <% } else { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="single.html" title="">
+                  <img src="/frontend/upload/blog_02.jpg" alt="" class="img-fluid">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="single.html" title="">Is summer, have you bought a cane</a></h4>
+                <small><a href="blog-category-01.html" title="">Fashion</a></small>
+                <small><a href="blog-category-01.html" title="">11 July, 2017</a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+
+            <hr class="invis">
+            <% } %>
+            <% } %>
+
+
+
+          </div><!-- end col -->
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <% for( let index = 2; index < 4; index++ ) { %>
+            <% if (result1[index]) { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="/blog/<%- result1[index].id %>" title="">
+                  <img src="<%- result1[index].mainImg %>" alt="" style="width: 100%;height: 378px; object-fit: cover;">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="/blog/<%- result1[index].id %>" title=""><%- result1[index].title %></a></h4>
+                <small><a href="/category/?id=<%- result1[index].categoryId.id %>&p=1" title=""><%- result1[index].categoryId.name %></a></small>
+                <small><a href="/blog/<%- result1[index].id %>" title=""><%- result1[index].createdAt.toLocaleDateString('en-EN', {
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                      }); %></a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+
+            <hr class="invis">
+            <% } else { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="single.html" title="">
+                  <img src="/frontend/upload/blog_02.jpg" alt="" class="img-fluid">
+                  <div class="hovereffect">
+                    <span></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="single.html" title="">Is summer, have you bought a cane</a></h4>
+                <small><a href="blog-category-01.html" title="">Fashion</a></small>
+                <small><a href="blog-category-01.html" title="">11 July, 2017</a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+
+            <hr class="invis">
+            <% } %>
+            <% } %>
+
+
+
+          </div><!-- end col -->
+        </div><!-- end row -->
+      </div><!-- end col -->
+    </div><!-- end row -->
+
+    <hr class="invis1">
+
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="banner-spot clearfix">
+          <div class="banner-img">
+            <img src="/frontend/upload/banner_01.jpg" alt="" class="img-fluid">
+          </div><!-- end banner-img -->
+        </div><!-- end banner -->
+      </div><!-- end col -->
+    </div><!-- end row -->
+
+    <hr class="invis1">
+
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="blog-list clearfix">
+          <div class="section-title">
+            <% if (result[2]) { %>
+            <h3 class="color-green"><a href="/category/?id=<%- result[2].id %>&p=1" title=""><%- result[2].name %></a></h3>
+
+            <% } else { %>
+            <h3 class="color-green"><a href="blog-category-01.html" title="">Travel</a></h3>
+
+            <% } %>
+          </div><!-- end title -->
+
+          <% for( let index = 0; index < 3; index++ ) { %>
+            <% if (result2[index]) { %>
+              <div class="blog-box row">
+                <div class="col-md-4">
+                  <div class="post-media">
+                    <a href="/blog/<%- result2[index].id %>" title="">
+                      <img src="<%- result2[index].mainImg %>" alt="" style="width: 100%;height: 255px; object-fit: cover;">
+                      <div class="hovereffect"></div>
+                    </a>
+                  </div><!-- end media -->
+                </div><!-- end col -->
+    
+                <div class="blog-meta big-meta col-md-8">
+                  <h4><a href="/blog/<%- result2[index].id %>" title=""><%- result2[index].title %></a></h4>
+                  <p><%- result2[index].desc.slice(0,180) %>...</p>
+                  <small><a href="/category/?id=<%- result2[index].categoryId.id %>&p=1" title=""><%- result2[index].categoryId.name %></a></small>
+                  <small><a href="/blog/<%- result2[index].id %>" title=""><%- result2[index].createdAt.toLocaleDateString('en-EN', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  }); %></a></small>
+                  <small><a href="/author/?id=<%- result2[index].userId.id %>&p=1" title="">by <%- result2[index].userId.username %></a></small>
+                </div><!-- end meta -->
+              </div><!-- end blog-box -->
+    
+              <hr class="invis">
+              <% } else { %>
+                <div class="blog-box row">
+                  <div class="col-md-4">
+                    <div class="post-media">
+                      <a href="single.html" title="">
+                        <img src="/frontend/upload/blog_square_01.jpg" alt="" class="img-fluid">
+                        <div class="hovereffect"></div>
+                      </a>
+                    </div><!-- end media -->
+                  </div><!-- end col -->
+      
+                  <div class="blog-meta big-meta col-md-8">
+                    <h4><a href="single.html" title="">5 Beautiful buildings you need to visit without dying</a></h4>
+                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
+                    <small><a href="blog-category-01.html" title="">Travel</a></small>
+                    <small><a href="single.html" title="">21 July, 2017</a></small>
+                    <small><a href="blog-author.html" title="">by Boby</a></small>
+                  </div><!-- end meta -->
+                </div><!-- end blog-box -->
+      
+                <hr class="invis">
+                <% } %>
+                <% } %>
+          
+
+         
+        </div><!-- end blog-list -->
+
+        <hr class="invis">
+
+        <div class="blog-list clearfix">
+          <div class="section-title">
+            <% if (result[3]) { %>
+            <h3 class="color-red"><a href="/category/?id=<%- result[3].id %>&p=1" title=""><%- result[3].name %></a></h3>
+
+            <% } else { %>
+            <h3 class="color-red"><a href="blog-category-01.html" title="">Travel</a></h3>
+
+            <% } %>
+          </div><!-- end title -->
+
+          <% for( let index = 0; index < 3; index++ ) { %>
+            <% if (result3[index]) { %>
+              <div class="blog-box row">
+                <div class="col-md-4">
+                  <div class="post-media">
+                    <a href="/blog/<%- result3[index].id %>" title="">
+                      <img src="<%- result3[index].mainImg %>" alt="" style="width: 100%;height: 255px; object-fit: cover;">
+                      <div class="hovereffect"></div>
+                    </a>
+                  </div><!-- end media -->
+                </div><!-- end col -->
+    
+                <div class="blog-meta big-meta col-md-8">
+                  <h4><a href="/blog/<%- result3[index].id %>" title=""><%- result3[index].title %></a></h4>
+                  <p><%- result3[index].desc.slice(0,180) %>...</p>
+                  <small><a href="/category/?id=<%- result3[index].categoryId.id %>&p=1" title=""><%- result3[index].categoryId.name %></a></small>
+                  <small><a href="/blog/<%- result3[index].id %>" title=""><%- result3[index].createdAt.toLocaleDateString('en-EN', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  }); %></a></small>
+                  <small><a href="/author/?id=<%- result3[index].userId.id %>&p=1" title="">by <%- result3[index].userId.username %></a></small>
+                </div><!-- end meta -->
+              </div><!-- end blog-box -->
+    
+              <hr class="invis">
+              <% } else { %>
+                <div class="blog-box row">
+                  <div class="col-md-4">
+                    <div class="post-media">
+                      <a href="single.html" title="">
+                        <img src="/frontend/upload/blog_square_01.jpg" alt="" class="img-fluid">
+                        <div class="hovereffect"></div>
+                      </a>
+                    </div><!-- end media -->
+                  </div><!-- end col -->
+      
+                  <div class="blog-meta big-meta col-md-8">
+                    <h4><a href="single.html" title="">5 Beautiful buildings you need to visit without dying</a></h4>
+                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
+                    <small><a href="blog-category-01.html" title="">Travel</a></small>
+                    <small><a href="single.html" title="">21 July, 2017</a></small>
+                    <small><a href="blog-author.html" title="">by Boby</a></small>
+                  </div><!-- end meta -->
+                </div><!-- end blog-box -->
+      
+                <hr class="invis">
+                <% } %>
+                <% } %>
+          
+        </div><!-- end blog-list -->
+      </div><!-- end col -->
+
+      <div class="col-lg-3">
+        <div class="section-title">
+          <% if (result[4]) { %>
+            <h3 class="color-yellow"><a href="/category/?id=<%- result[4].id %>&p=1" title=""><%- result[4].name %></a></h3>
+
+            <% } else { %>
+              <h3 class="color-yellow"><a href="blog-category-01.html" title="">Vlogs</a></h3>
+
+              <% } %>
+        </div><!-- end title -->
+
+        <% for( let index = 0; index < 3; index++ ) { %>
+          
+          <% if (result4[index]) { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="/blog/<%- result4[index].id %>" title="">
+                  <img src="<%- result4[index].mainImg %>" alt="" style="width: 100%;height: 146px; object-fit: cover;">
+                  <div class="hovereffect">
+                    <span class="videohover"></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="/blog/<%- result4[index].id %>" title=""><%- result4[index].title %></a></h4>
+                <small><a href="/category/?id=<%- result4[index].categoryId.id %>&p=1" title=""><%- result4[index].categoryId.name %></a></small>
+                <small><a href="/blog/<%- result4[index].id %>" title=""><%- result4[index].createdAt.toLocaleDateString('en-EN', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+                }); %></a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+    
+            <hr class="invis">
+            <% } else { %>
+              <div class="blog-box">
+                <div class="post-media">
+                  <a href="single.html" title="">
+                    <img src="/frontend/upload/blog_10.jpg" alt="" class="img-fluid">
+                    <div class="hovereffect">
+                      <span class="videohover"></span>
+                    </div><!-- end hover -->
+                  </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                  <h4><a href="single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
+                  <small><a href="blog-category-01.html" title="">Videos</a></small>
+                  <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
+                </div><!-- end meta -->
+              </div><!-- end blog-box -->
+      
+              <hr class="invis">
+              <% } %>
+              <% } %>
+
+        
+
+     
+
+        <hr class="invis">
+
+        <div class="section-title">
+          <% if (result[5]) { %>
+            <h3 class="color-grey"><a href="/category/?id=<%- result[5].id %>&p=1" title=""><%- result[5].name %></a></h3>
+            <% } else { %>
+              <h3 class="color-grey"><a href="blog-category-01.html" title="">Health</a></h3>
+              <% } %>
+        </div><!-- end title -->
+
+        <% for( let index = 0; index < 3; index++ ) { %>
+          
+          <% if (result5[index]) { %>
+            <div class="blog-box">
+              <div class="post-media">
+                <a href="/blog/<%- result5[index].id %>" title="">
+                  <img src="<%- result5[index].mainImg %>" alt="" style="width: 100%;height: 146px; object-fit: cover;">
+                  <div class="hovereffect">
+                    <span class="videohover"></span>
+                  </div><!-- end hover -->
+                </a>
+              </div><!-- end media -->
+              <div class="blog-meta">
+                <h4><a href="/blog/<%- result5[index].id %>" title=""><%- result5[index].title %></a></h4>
+                <small><a href="/category/?id=<%- result5[index].categoryId.id %>&p=1" title=""><%- result5[index].categoryId.name %></a></small>
+                <small><a href="/blog/<%- result5[index].id %>" title=""><%- result5[index].createdAt.toLocaleDateString('en-EN', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+                }); %></a></small>
+              </div><!-- end meta -->
+            </div><!-- end blog-box -->
+    
+            <hr class="invis">
+            <% } else { %>
+              <div class="blog-box">
+                <div class="post-media">
+                  <a href="single.html" title="">
+                    <img src="/frontend/upload/blog_10.jpg" alt="" class="img-fluid">
+                    <div class="hovereffect">
+                      <span class="videohover"></span>
+                    </div><!-- end hover -->
+                  </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                  <h4><a href="single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
+                  <small><a href="blog-category-01.html" title="">Videos</a></small>
+                  <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
+                </div><!-- end meta -->
+              </div><!-- end blog-box -->
+      
+              <hr class="invis">
+              <% } %>
+              <% } %>
+      
+      </div><!-- end col -->
+    </div><!-- end row -->
+
+    <hr class="invis1">
+
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="banner-spot clearfix">
+          <div class="banner-img">
+            <img src="/frontend/upload/banner_02.jpg" alt="" class="img-fluid">
+          </div><!-- end banner-img -->
+        </div><!-- end banner -->
+      </div><!-- end col -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</section>

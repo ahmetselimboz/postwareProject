@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-12">
+      <div
+      class="px-3 py-4 mb-3 rounded d-flex flex-row justify-content-center align-items-center navbar-detached   bg-navbar-theme"
+      id="layout-navbar">
+      <h3 class="m-0">My Posts</h3>
+      
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="row mt-4">
+
+    <% if (result[0]) { %>
+      <% for( let index = 0; index < result.length; index++ ) { %>
+    
+        <div class="col-md-6 col-lg-4 mb-3 ">
+          <div class="card  ">
+            <img class="card-img-top" src="<%- result[index].mainImg %>" alt="Card image cap" style="max-height: 216px; width: fit-content; margin: auto;"/>
+            <div class="card-body">
+      
+           
+              <div class="text-center">
+                <div class="d-flex flex-column mb-3">
+                  <h4 class="card-title mb-0"><%- result[index].title %></h4>
+                  <small class="text-muted"><%- result[index].createdAt.toLocaleDateString('en-EN', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  }); %></small>
+                  <small class="text-muted d-flex flex-row justify-content-center"><i class='bx bx-show-alt mx-1'></i><%- result[index].click %></small>
+                  
+                </div>
+                 <a href="/admin/post-update/<%- result[index].id %>" class="btn btn-success mx-1">Update</a>
+                  <a href="/admin/post-delete/<%- result[index].id %>" class="btn btn-danger mx-1">Delete</a>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      <% } %>
+      <% } else { %>
+
+        <h3 class="text-center">No post has been published</h3>
+    <% } %>
+     
+    
+    
+    
+    
+     
+      <div class="text-center  my-3">
+          <a href="/admin/new-post" class="btn btn-primary btn-lg"><i class="menu-icon tf-icons bx bx-plus"></i>New Post</a>
+      </div>
+           
+  </div>
+  

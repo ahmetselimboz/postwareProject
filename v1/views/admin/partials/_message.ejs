@@ -1,0 +1,30 @@
+<% validation_error.forEach(element => { %>
+ 
+    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+ 
+        <strong>Something went wrong!</strong> <%- element.msg %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+
+    
+    
+    <% }) %> <% success_message.forEach(element => { %>
+    
+        <div class="alert alert-success alert-dismissible fade show " role="alert">
+ 
+            <strong>Success!</strong> <%- element.msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+    
+    
+    
+    <% }) %> <% error.forEach(element => { %>
+    
+        <div class="alert alert-danger alert-dismissible fade show " role="alert">
+ 
+            <strong>Something went wrong!</strong> <%- element%>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+    <% }) %>
+    

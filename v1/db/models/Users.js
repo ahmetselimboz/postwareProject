@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../../config/environments");
-const convertToDataURI = require("../../lib/DefaultUserImage")
+const convertToDataURI = require("../../lib/DefaultUserImage");
 
 const schema = mongoose.Schema(
   {
@@ -36,7 +36,7 @@ const schema = mongoose.Schema(
     photo: {
       type: String,
       trim: true,
-      default: convertToDataURI() ,
+      default: convertToDataURI(),
     },
     about: {
       type: String,
@@ -66,8 +66,10 @@ const schema = mongoose.Schema(
   { versionKey: false, timestamps: true }
 );
 
-class Users extends mongoose.Model {}
+class User extends mongoose.Model {}
 
-schema.loadClass(Users);
+schema.loadClass(User);
+
+
 
 module.exports = mongoose.model("users", schema);
