@@ -4,6 +4,11 @@ class Posts extends BaseService {
   constructor() {
     super(BaseModel);
   }
+  
+  findOne(where) {
+    return BaseModel?.findOne(where || {});
+  }
+
 
   listPostsWithDetails(where) {
     return BaseModel?.find(where || {}).populate([
@@ -29,8 +34,14 @@ class Posts extends BaseService {
 
   listPostsSortAndLimit(where, sort, limit) {
     return BaseModel?.find(where || {})
-      .sort(sort)
-      .limit(limit);
+      .sort(sort || {})
+      .limit(limit || {}).populate([
+        {
+          path: "userId",
+          select: "name surname username photo about urls",
+        },
+        { path: "categoryId" },
+      ]);
   }
 }
 

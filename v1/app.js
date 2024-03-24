@@ -4,16 +4,18 @@ if (process.env.NODE_ENV != "production") {
 
 var createError = require("http-errors");
 var express = require("express");
+const session = require("express-session");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var { Admin, Homepage } = require("./routes");
 var { emptyData, mainAdmin } = require("./lib/firstDatas");
 const expressLayouts = require("express-ejs-layouts");
+const passport = require("passport");
+const MongoDBStore = require("connect-mongodb-session")(session);
+const config = require("./config/environments");
 var app = express();
 
-// view engine setup
-//app.set("views", path.resolve(__dirname, "./views"));
 app.set("views", path.join(__dirname, "./views"));
 app.set("layout", "./frontend/layout/layout", "./admin/layout/layout");
 app.set("view engine", "ejs");
@@ -28,31 +30,51 @@ app.use(express.static(path.join(__dirname, "public")));
 emptyData();
 mainAdmin();
 
-app.use("/", Homepage.Homepage);
-app.use("/admin", Admin.Homepage);
+const sessionStore = new MongoDBStore({
+  uri: config.MONGODB_CONNECTION_STRING,
+  collection: "sessions",
+});
+
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+    store: sessionStore,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", Homepage.Users);
-app.use("/admin", Admin.Users);
+//app.use("/admin", Admin.Users);
+
+app.use("/", Homepage.Homepage);
+//app.use("/admin", Admin.Homepage);
 
 app.use("/", Homepage.Categories);
-app.use("/admin", Admin.Categories);
+//app.use("/admin", Admin.Categories);
 
 app.use("/", Homepage.Posts);
-app.use("/admin", Admin.Posts);
+//app.use("/admin", Admin.Posts);
 
 app.use("/", Homepage.Footers);
-app.use("/admin", Admin.Footers);
+//app.use("/admin", Admin.Footers);
 
 app.use("/", Homepage.Contacts);
-app.use("/admin", Admin.Contacts);
+//app.use("/admin", Admin.Contacts);
 
 app.use("/", Homepage.Subscribes);
-app.use("/admin", Admin.Subscribes);
+//app.use("/admin", Admin.Subscribes);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function (err, req, res, next) {

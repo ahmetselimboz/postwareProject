@@ -1,6 +1,6 @@
 const BaseService = require("./BaseServices");
-const BaseModel = require("../db/models/Footers");
-class Footers extends BaseService {
+const BaseModel = require("../db/models/Users");
+class Users extends BaseService {
   constructor() {
     super(BaseModel);
   }
@@ -10,4 +10,4 @@ class Footers extends BaseService {
   }
 }
 
-module.exports = new Footers();
+module.exports = new Users();

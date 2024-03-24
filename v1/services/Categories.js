@@ -4,6 +4,12 @@ class Categories extends BaseService {
   constructor() {
     super(BaseModel);
   }
+
+  findOne(where){
+    return BaseModel?.findOne(where || {})
+  }
 }
+
+
 
 module.exports = new Categories();

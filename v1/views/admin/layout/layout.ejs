@@ -90,7 +90,7 @@
           <div class="app-brand demo">
             <a href="/admin/homepage" class="app-brand-link">
               <h4 class="demo menu-text fw-bold border border-0">
-                
+                <%- name %>
               </h4>
             </a>
           </div>
@@ -106,7 +106,7 @@
               </a>
             </li>
 
-           
+            <% if (user.mainAdmin == true) { %>
             <li class="menu-item">
               <a href="/admin/allPosts" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-edit"></i>
@@ -137,7 +137,7 @@
                 <div data-i18n="Email">Contact</div>
               </a>
             </li>
-           
+            <% } %> <% if (user.mainAdmin == false) { %>
             <li class="menu-item">
               <a href="/admin/posts" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-edit"></i>
@@ -150,7 +150,7 @@
                 <div data-i18n="Email">Profile Settings</div>
               </a>
             </li>
-          
+            <% } %>
             <li class="menu-item">
               <a href="/admin/logout" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
@@ -188,7 +188,8 @@
                   <div class="col align-self-center"></div>
                   <div class="col align-self-end">
                     <div class="position-absolute z-3 align-self-end">
-                     
+                      <% if (locals.validation_error!=undefined||locals.success_message !=undefined||locals.error!=undefined) { %> 
+                      <%-include('../partials/_message') %> <% } %>
                     </div>
                   </div>
                 </div>

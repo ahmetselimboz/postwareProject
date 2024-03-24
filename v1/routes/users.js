@@ -1,8 +1,14 @@
 const express = require("express");
 let router = express.Router();
-const {list} =require("../controllers/Users");
+const userController = require("../controllers/Users");
+const {
+  checkAuthenticated,
+  checkLoggedIn,
+} = require("../middlewares/checkAuth");
 
 
-router.get("/users", list)
+router.get("/admin/login", checkLoggedIn, userController.getLogin);
+
+router.post("/admin/login", checkLoggedIn, userController.postLogin);
 
 module.exports = router;

@@ -1,9 +1,10 @@
 const fs = require("fs");
 
+
 function convertToDataURI() {
   try {
     // Dosya okuma işlemi
-    const imageBuffer = fs.readFileSync("./uploads/images/defaultUser.png");
+    const imageBuffer = fs.readFileSync("../uploads/images/defaultUser.png");
 
     // Base64'e dönüştürme
     const base64Image = imageBuffer.toString("base64");

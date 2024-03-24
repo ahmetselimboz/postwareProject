@@ -36,7 +36,7 @@ const schema = mongoose.Schema(
     photo: {
       type: String,
       trim: true,
-      default: convertToDataURI(),
+      //default: convertToDataURI(),
     },
     about: {
       type: String,

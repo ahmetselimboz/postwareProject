@@ -11,4 +11,5 @@ module.exports = {
       : 24 * 60 * 60, // 86400
   },
   DEFAULT_LANG: process.env.DEFAULT_LANG || "EN",
+  SESSION_SECRET: process.env.SESSION_SECRET || 123456
 };
