@@ -11,9 +11,9 @@ const schema = mongoose.Schema(
   { versionKey: false, timestamps: true }
 );
 
-class AuditLogs extends mongoose.Model {}
+class AuditLog extends mongoose.Model {}
 
-schema.loadClass(AuditLogs);
+schema.loadClass(AuditLog);
 
 
 const AuditLogs = mongoose.model("audit_logs", schema);

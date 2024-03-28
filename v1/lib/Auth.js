@@ -1,5 +1,4 @@
 const LocalStrategy = require("passport-local").Strategy;
-//const { ExtractJwt, Strategy } = require("passport-jwt");
 const env = require("../config/environments");
 const User = require("../db/models/Users");
 const bcrypt = require("bcryptjs");
@@ -16,25 +15,33 @@ module.exports = (passport) => {
       try {
         const findUser = await Users.findOne({ username });
 
-        if (!findUser) return done(null, false);
+        if (!findUser)
+          return done(null, false, {
+            message: "No such user record found",
+          });
         const checkPassword = await bcrypt.compare(password, findUser.password);
         if (!checkPassword)
-          return done(null, false, );
+          return done(null, false, {
+            message: "Username or password wrong",
+          });
         if (findUser && findUser.isAdmin == false)
-          return done(null, false
-           );
+          return done(null, false, {
+            message: "Wait for your admin status to be approved",
+          });
         return done(
           null,
           {
             id: findUser._id,
             name: findUser.name,
             surname: findUser.surname,
+            username: findUser.username,
             language: findUser.language,
-            photo: findUser.photo,
             about: findUser.about,
             urls: findUser.urls,
           },
-          
+          {
+            message: "You are logged in",
+          }
         );
       } catch (error) {
         console.log(">>Error Auth.js: " + error);

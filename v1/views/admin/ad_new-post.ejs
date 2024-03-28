@@ -16,7 +16,7 @@
         <form
           action="/admin/new-post"
           method="post"
-          enctype="multipart/form-data"
+  
         >
           <div class="mb-3">
             <label for="defaultFormControlInput" class="form-label"
@@ -44,14 +44,29 @@
             <label for="defaultFormControlInput" class="form-label">Tags</label>
             <input id="tagsInput" class="form-control" name="tags" />
           </div>
-          <div class="mx-2">
+          <div class="mt-2 mb-3">
             <div class="mb-4 d-flex justify-content-center">
-              <img id="mainImg" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" alt="example placeholder" style="width: 300px" />
+              <img
+                id="mainImg"
+                src="/frontend/images/placeholder.jpg"
+                alt="example placeholder"
+                style="width: 300px"
+              />
             </div>
             <div class="d-flex justify-content-center">
               <div class="btn btn-primary btn-rounded">
-                <label role="button" class="form-label text-white m-1" for="customFile4">Choose file</label>
-                <input type="file" class="form-control d-none" id="customFile4" onchange="displaySelectedImage(this, 'mainImg')" />
+                <label
+                  role="button"
+                  class="form-label text-white m-1"
+                  for="customFile4"
+                  >Choose file</label
+                >
+                <input
+                  type="file"
+                  class="form-control d-none"
+                  id="customFile4"
+                  onchange="displaySelectedImage(this, 'mainImg')"
+                />
                 <input type="hidden" id="mainImg0" name="mainImg" />
               </div>
             </div>

@@ -11,5 +11,10 @@ module.exports = {
       : 24 * 60 * 60, // 86400
   },
   DEFAULT_LANG: process.env.DEFAULT_LANG || "EN",
-  SESSION_SECRET: process.env.SESSION_SECRET || 123456
+  SESSION_SECRET: process.env.SESSION_SECRET || 123456,
+  
+  MAIL_HOST: process.env.MAIL_HOST,
+  MAIL_USER: process.env.MAIL_USER,
+  MAIL_PASS: process.env.MAIL_PASS,
+  
 };

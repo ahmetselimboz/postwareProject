@@ -17,14 +17,10 @@
 
     <title><%- title %></title>
 
-    <meta name="description" content="" />
+    <meta name="description" content="<%- description %>" />
 
     <!-- Favicon -->
-    <link
-      rel="shortcut icon"
-      href="/frontend/assets/qr.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="<%- icon %>" type="image/x-icon" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,23 +71,16 @@
     <div class="container-xxl">
       <div class="container">
         <div class="row mt-3">
-          <div class="col align-self-start">
-  
-          </div>
-          <div class="col align-self-center">
-       
-          </div>
+          <div class="col align-self-start"></div>
+          <div class="col align-self-center"></div>
           <div class="col align-self-end">
-            <div class="position-absolute z-3 align-self-end">
-              <% if (locals.validation_error !=undefined || locals.success_message
-              !=undefined || locals.error !=undefined) { %> <%-
-              include('./partials/_message') %> <% } %>
+            <div class="position-absolute z-3 align-self-end d-flex flex-column">
+              <%- include('./partials/_message') %>
             </div>
           </div>
         </div>
       </div>
-      
-      
+
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register Card -->
@@ -156,7 +145,6 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
-               
                     />
                     <span class="input-group-text cursor-pointer"
                       ><i class="bx bx-hide"></i
@@ -174,7 +162,6 @@
                       name="repassword"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
-                  
                     />
                     <span class="input-group-text cursor-pointer"
                       ><i class="bx bx-hide"></i

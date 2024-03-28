@@ -11,7 +11,7 @@ class Response {
     };
   }
 
-  static errorResponse(error ,lang) {
+  static errorResponse(error ) {
     if (error instanceof CustomError) {
       return {
         code: error.code,
@@ -25,7 +25,7 @@ class Response {
     return {
       code: _enum.HTTP_CODES.INT_SERVER_ERROR,
       error: {
-        message: i18n.translate("COMMON.UNKNOWN_ERROR", lang),
+        message: i18n.translate("COMMON.UNKNOWN_ERROR"),
         description: error.message,
       },
     };
