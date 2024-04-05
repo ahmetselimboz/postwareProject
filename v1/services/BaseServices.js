@@ -6,7 +6,6 @@ class BaseService {
   }
 
   list(where) {
-
     return this.BaseModel?.find(where || {});
   }
 

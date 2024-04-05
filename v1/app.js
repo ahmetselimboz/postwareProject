@@ -15,7 +15,7 @@ const config = require("./config/environments");
 const customMorganLogger = require("./lib/Morgan");
 const chalk = require("chalk");
 var flash = require("connect-flash");
-const { flashLocals, flashMessage } = require("./lib/Flash");
+const { flashLocals} = require("./lib/Flash");
 var app = express();
 
 app.set("views", path.join(__dirname, "./views"));

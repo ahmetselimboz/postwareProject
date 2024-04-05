@@ -50,7 +50,7 @@ const getBlogPage = async (req, res) => {
     res.locals.title = req.flash("title");
     res.render("./frontend/blog-page");
   } catch (error) {
-    logger.error(req.user.username, "Post", "Blog-Page", error);
+    logger.error(req.user?.username, "Post", "Blog-Page", error);
   }
 };
 
@@ -72,7 +72,7 @@ const postClick = async (req, res, next) => {
 
     res.status(200).send("Tıklama kaydedildi.");
   } catch (error) {
-    logger.error(req.user.username, "Post", "Post-Click", error);
+    logger.error(req.user?.username, "Post", "Post-Click", error);
     res.status(500).send("Internal Server Error");
   }
 };

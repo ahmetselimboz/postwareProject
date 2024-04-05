@@ -9,7 +9,7 @@ const getContact = async (req, res) => {
     await Renderer.setData(res);
     res.render("./frontend/contact");
   } catch (error) {
-    logger.error(req.user.username, "Contact", "Contact-Page", error);
+    logger.error(req.user?.username, "Contact", "Contact-Page", error);
   }
 };
 
@@ -25,7 +25,7 @@ const postContact = async (req, res) => {
 
     res.redirect("/contact");
   } catch (error) {
-    logger.error(req.user.username, "Contact", "Add-Contact", error);
+    logger.error(req.user?.username, "Contact", "Add-Contact", error);
   }
 };
 

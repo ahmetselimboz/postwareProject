@@ -62,7 +62,7 @@ const getCategoryPage = async (req, res) => {
 
     res.render("./frontend/category-page");
   } catch (error) {
-    logger.error(req.user.username, "Categories", "Category-Page", error);
+    logger.error(req.user?.username, "Categories", "Category-Page", error);
   }
 };
 
