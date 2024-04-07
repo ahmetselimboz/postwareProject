@@ -24,8 +24,8 @@
 
             <div class="blog-meta big-meta">
               <small
-                ><a href="/blog/<%- resultPost.id %>" title=""
-                  ><%- resultPost.createdAt.toLocaleDateString('en-EN', { day:
+                ><a href="/blog/<%- resultPost._id %>" title=""
+                  ><%- new Date(resultPost.createdAt).toLocaleDateString('en-EN', { day:
                   'numeric', month: 'long', year: 'numeric' }); %></a
                 ></small
               >
@@ -275,7 +275,7 @@
   </div>
   <!-- end container -->
 </section>
-<input type="hidden" name="" value="<%- resultPost.id %>" id="resultPost" />
+<input type="hidden" name="" value="<%- resultPost._id %>" id="resultPost" />
 <input type="hidden" id="input-title" value="<%- resultPost.title %>" />
 <script>
   const resultPost = document.querySelector("#resultPost");

@@ -16,6 +16,7 @@ const customMorganLogger = require("./lib/Morgan");
 const chalk = require("chalk");
 var flash = require("connect-flash");
 const { flashLocals} = require("./lib/Flash");
+const { saveRedisAllPosts } = require("./services/Posts");
 var app = express();
 
 app.set("views", path.join(__dirname, "./views"));
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 emptyData();
 mainAdmin();
+saveRedisAllPosts();
 
 const sessionStore = new MongoDBStore({
   uri: config.MONGODB_CONNECTION_STRING,
@@ -59,6 +61,8 @@ app.use((req, res, next) => {
 app.use(customMorganLogger);
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 
 app.use("/", Homepage.Users);
 app.use("/", Homepage.Homepage);

@@ -25,6 +25,10 @@ class Redis {
           console.error("Redis error:", err);
         })
         .connect();
+
+      this.client.on("connect", ()=>{
+        console.log("Redis Connected!");
+      })
       instance = this;
     }
     return instance;
@@ -49,12 +53,18 @@ class Redis {
   async hSet(key, field, value) {
     return this.client.hSet(key, field, value);
   }
+  async hGet(key, field) {
+    return this.client.hGet(key, field);
+  }
 
   async hGetAll(key) {
     return this.client.hGetAll(key);
   }
   async hVals(key) {
     return this.client.hVals(key);
+  }
+  async hDel(key, field) {
+    return this.client.hDel(key, field);
   }
 
   expire(status, time){
