@@ -1,11 +1,4 @@
 {
     "schemaVersion": 2,
-    "dockerfileLines": [
-       " FROM node:21-slim",
-        "COPY /v1/package.json ./",
-        "RUN npm install",
-        "COPY . .",
-        "EXPOSE 4000",
-        "CMD [ "node", "app.js" ]"
-    ]
+    "dockerfilePath": "./Dockerfile"
 }
