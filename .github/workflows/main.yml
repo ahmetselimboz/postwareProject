@@ -23,6 +23,7 @@ jobs:
           command: c
           cwd: "./"
           files: |
+            v1/
             captain-definition
           outPath: deploy.tar
       
