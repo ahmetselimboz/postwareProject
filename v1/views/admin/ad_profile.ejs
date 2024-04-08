@@ -1,0 +1,288 @@
+<div class="row">
+  <div class="col-12">
+    <div
+      class="px-3 py-4 mb-3 rounded d-flex flex-row justify-content-center align-items-center navbar-detached bg-navbar-theme"
+      id="layout-navbar"
+    >
+      <h3 class="m-0">Profile Settings</h3>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body demo-vertical-spacing demo-only-element">
+        <form action="/admin/profile" method="post">
+          <div class="d-flex flex-column align-items-start">
+            <div class="mb-3">
+              <div class="mb-4 d-flex justify-content-center">
+                <img
+                  id="mainImg"
+                  src="<%- user.photo %>"
+                  class="rounded-circle"
+                  alt="example placeholder"
+                  style="width: 150px; height: 150px; object-fit: cover"
+                />
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="btn btn-primary btn-rounded">
+                  <label
+                    role="button"
+                    class="form-label text-white m-1"
+                    for="customFile4"
+                    >Choose file</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control d-none"
+                    id="customFile4"
+                    onchange="displaySelectedImage(this, 'mainImg')"
+                  />
+                  <input
+                    type="hidden"
+                    id="mainImg0"
+                    name="mainImg"
+                    value="<%- user.photo %>"
+                  />
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="id" value="<%- user.id %>" />
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="name"
+                value="<%- user.name %>"
+                required
+              />
+            </div>
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Surname</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="surname"
+                value="<%- user.surname %>"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="defaultFormControlInput" class="form-label"
+              >Username</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="defaultFormControlInput "
+              name="username"
+              value="<%- user.username %>"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="defaultFormControlInput" class="form-label"
+              >About</label
+            >
+            <textarea
+              type="text"
+              class="form-control"
+              id="defaultFormControlInput "
+              name="about"
+              rows="5"
+              required
+            >
+<%- user.about %></textarea
+            >
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Instagram</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="instagram"
+                value="<%- user.urls.instagram %>"
+              />
+            </div>
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Twitter</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="twitter"
+                value="<%- user.urls.twitter %>"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Facebook</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="facebook"
+                value="<%- user.urls.facebook %>"
+              />
+            </div>
+            <div class="col mb-3">
+              <label for="defaultFormControlInput" class="form-label"
+                >Web Site</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="linkedin"
+                value="<%- user.urls.linkedin %>"
+              />
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-success mb-3">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mx-0 mt-3">
+  <div class="card">
+    <div class="card-body demo-vertical-spacing demo-only-element">
+      <h4 class="pt-3"><u>Change Password</u></h4>
+      <form action="/admin/change-password" method="post" class="py-2">
+        <div class="d-flex flex-column align-items-start">
+          <input type="hidden" name="id" value="<%- user.id %>" />
+        </div>
+
+        <div class="row">
+          <div class="col col-lg-6 mb-3">
+            <label for="defaultFormControlInput" class="form-label"
+              >Old Password</label
+            >
+            <div class="input-group" id="show_hide_password">
+              <input
+                type="password"
+                class="form-control"
+                id="defaultFormControlInput"
+                aria-describedby="password"
+                name="oldPass"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                required
+              />
+
+              <span
+                class="input-group-text"
+                onclick="password_show_hide(this);"
+              >
+                <i class="bx bx-hide" id="show_eye"></i>
+                <i class="bx bx-show-alt d-none" id="hide_eye"></i>
+              </span>
+            </div>
+            <label for="defaultFormControlInput" class="form-label"
+              >New Password</label
+            >
+            <div class="input-group" id="show_hide_password">
+              <input
+                type="password"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="newPass"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                required
+              />
+
+              <span
+                class="input-group-text"
+                onclick="password_show_hide(this);"
+              >
+                <i class="bx bx-hide" id="show_eye"></i>
+                <i class="bx bx-show-alt d-none" id="hide_eye"></i>
+              </span>
+            </div>
+            <label for="defaultFormControlInput" class="form-label"
+              >Restart New Password</label
+            >
+            <div class="input-group" id="show_hide_password">
+              <input
+                type="password"
+                class="form-control"
+                id="defaultFormControlInput "
+                name="reNewPass"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                required
+              />
+
+              <span
+                class="input-group-text"
+                onclick="password_show_hide(this);"
+              >
+                <i class="bx bx-hide" id="show_eye"></i>
+                <i class="bx bx-show-alt d-none" id="hide_eye"></i>
+              </span>
+            </div>
+            <div class="text-center mt-3">
+              <button class="btn btn-success mb-3">Update</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  function password_show_hide(parent) {
+    var x = parent.parentElement.firstElementChild;
+
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+
+  function displaySelectedImage(event, elementId) {
+    console.log("Deneme");
+    const selectedImage = document.getElementById(elementId);
+    const fileInput = event.target;
+
+    if (fileInput.files && fileInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        selectedImage.src = e.target.result;
+      };
+
+      reader.readAsDataURL(fileInput.files[0]);
+    }
+  }
+</script>

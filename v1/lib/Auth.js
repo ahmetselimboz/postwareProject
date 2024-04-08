@@ -1,42 +1,61 @@
-const passport = require("passport");
-const { ExtractJwt, Strategy } = require("passport-jwt");
+const LocalStrategy = require("passport-local").Strategy;
 const env = require("../config/environments");
-const User = require("../db/models/User");
+const User = require("../db/models/Users");
+const bcrypt = require("bcryptjs");
+const Users = require("../services/Users");
 
-module.exports = () => {
-  let strategy = new Strategy(
-    {
-      secretOrKey: env.JWT.SECRET,
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    },
-    async (payload, done) => {
+module.exports = (passport) => {
+  const options = {
+    usernameField: "username",
+    passwordField: "password",
+  };
+
+  passport.use(
+    new LocalStrategy(options, async (username, password, done) => {
       try {
-        const user = await User.findOne({ id: payload.id });
+        const findUser = await Users.findOne({ username });
 
-        if (user) {
-          done(null, {
-            id: user.id,
-            email: user.email,
-            language: user.language,
-            exp: parseInt(Date.now() / 1000) * env.JWT.EXPIRE_TIME,
+        if (!findUser)
+          return done(null, false, {
+            message: "No such user record found",
           });
-        } else {
-          done(new Error("User not found!"), null);
-        }
+        const checkPassword = await bcrypt.compare(password, findUser.password);
+        if (!checkPassword)
+          return done(null, false, {
+            message: "Username or password wrong",
+          });
+        if (findUser && findUser.isAdmin == false)
+          return done(null, false, {
+            message: "Wait for your admin status to be approved",
+          });
+        return done(
+          null,
+          {
+            id: findUser._id,
+            name: findUser.name,
+            surname: findUser.surname,
+            username: findUser.username,
+            language: findUser.language,
+            about: findUser.about,
+            urls: findUser.urls,
+          },
+          {
+            message: "You are logged in",
+          }
+        );
       } catch (error) {
-        done(error, null);
+        console.log(">>Error Auth.js: " + error);
       }
-    }
+    })
   );
 
-  passport.use(strategy);
+  passport.serializeUser(function (user, done) {
+    process.nextTick(function () {
+      done(null, user);
+    });
+  });
 
-  return {
-    initialize: () => {
-      return passport.initialize();
-    },
-    authenticate: () => {
-      return passport.authenticate("jwt", { session: false });
-    },
-  };
+  passport.deserializeUser(async function (user, done) {
+    return done(null, user);
+  });
 };

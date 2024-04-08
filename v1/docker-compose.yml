@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+    posttware:
+        image: asb00/posttwareV2
+        container_name: posttware-server
+        build: .
+        ports:
+            - 4000:4000
+    redis:
+        image: redis:latest
+        restart: always
+        ports:
+          -6379:6379

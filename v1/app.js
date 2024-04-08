@@ -2,48 +2,81 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
-var createError = require("http-errors");
-
 var express = require("express");
+const session = require("express-session");
 var path = require("path");
 var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-
-
-
+var { Homepage } = require("./routes");
+var { emptyData, mainAdmin } = require("./lib/firstDatas");
+const expressLayouts = require("express-ejs-layouts");
+const passport = require("passport");
+const MongoDBStore = require("connect-mongodb-session")(session);
+const config = require("./config/environments");
+const customMorganLogger = require("./lib/Morgan");
+const chalk = require("chalk");
+var flash = require("connect-flash");
+const { flashLocals} = require("./lib/Flash");
+const { saveRedisAllPosts } = require("./services/Posts");
 var app = express();
 
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "./views"));
+app.set("layout", "./frontend/layout/layout", "./admin/layout/layout");
 app.set("view engine", "ejs");
 
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
+app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "public")));
-console.log(process.env);
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+emptyData();
+mainAdmin();
+saveRedisAllPosts();
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+const sessionStore = new MongoDBStore({
+  uri: config.MONGODB_CONNECTION_STRING,
+  collection: "sessions",
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+    store: sessionStore,
+  })
+);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
+app.use(flash());
+
+app.use((req, res, next) => {
+
+  flashLocals(req, res);
+  next();
+});
+
+app.use(customMorganLogger);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+app.use("/", Homepage.Users);
+app.use("/", Homepage.Homepage);
+app.use("/", Homepage.Categories);
+app.use("/", Homepage.Posts);
+app.use("/", Homepage.Footers);
+app.use("/", Homepage.Contacts);
+app.use("/", Homepage.Subscribes);
+app.use("/", Homepage.Author);
+
+app.use(function (err, req, res, next) {
+  console.error(chalk.red(err));
+  res.locals.error = req.app.get("env") == "development" ? err : {};
+  res.render("error", { layout: false });
 });
 
 module.exports = app;

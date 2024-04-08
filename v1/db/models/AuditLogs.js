@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema(
   {
     level: String,
-    email: String,
+    username: String,
     location: String,
     proc_type: String,
     log: String,
@@ -11,8 +11,11 @@ const schema = mongoose.Schema(
   { versionKey: false, timestamps: true }
 );
 
-class AuditLogs extends mongoose.Model {}
+class AuditLog extends mongoose.Model {}
 
-schema.loadClass(AuditLogs);
+schema.loadClass(AuditLog);
 
-module.exports = mongoose.model("audit_logs", schema);
+
+const AuditLogs = mongoose.model("audit_logs", schema);
+
+module.exports = AuditLogs;

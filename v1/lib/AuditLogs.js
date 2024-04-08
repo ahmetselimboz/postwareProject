@@ -11,52 +11,52 @@ class AuditLogs {
     return instance;
   }
 
-  info(email, location, proc_type, log) {
+  info(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.INFO,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
 
-  error(email, location, proc_type, log) {
+  error(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.ERROR,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
 
-  warn(email, location, proc_type, log) {
+  warn(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.WARN,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
 
-  verbose(email, location, proc_type, log) {
+  verbose(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.VERBOSE,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
   
-  http(email, location, proc_type, log) {
+  http(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.HTTP,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
-  debug(email, location, proc_type, log) {
+  debug(username, location, proc_type, log) {
     this.#saveToDB({
       level: _enum.LOG_LEVELS.DEBUG,
-      email,location,proc_type,log
+      username,location,proc_type,log
     });
   }
 
 
-  #saveToDB({ level, email, location, proc_type, log }) {
+  #saveToDB({ level, username, location, proc_type, log }) {
     AuditLogsModel.create({
       level,
-      email,
+      username,
       location,
       proc_type,
       log,
