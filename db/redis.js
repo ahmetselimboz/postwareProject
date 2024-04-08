@@ -1,4 +1,5 @@
 const { createClient } = require("redis");
+const config = require("../config/environments")
 
 let instance = null;
 
@@ -6,6 +7,7 @@ class Redis {
   constructor() {
     if (!instance) {
       this.client = createClient({
+        host: config.REDIS_HOST,
         socket: {
           reconnectStrategy: function (retries) {
             if (retries > 20) {
