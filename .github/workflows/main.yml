@@ -27,8 +27,11 @@ jobs:
           outPath: deploy.tar
       
       - name: Deploy to CapRover
-        uses: caprover/deploy-from-github@v1.1.2
+        uses: floms/action-caprover@v1
         with:
-          server: '${{ secrets.CAPROVER_SERVER }}'
+          host: '${{ secrets.CAPROVER_SERVER }}'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
           app: '${{ secrets.APP_NAME }}'
-          token: '${{ secrets.APP_TOKEN }}'
+          image: '${{ secrets.IMAGE_NAME }}'
+
+      
