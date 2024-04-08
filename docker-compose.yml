@@ -1,7 +1,7 @@
 version: '3.4'
 services:
     posttware:
-        image: asb00/posttwareV2
+        image: asb00/posttware-v2
         container_name: posttware-server
         build: .
         depends_on:
