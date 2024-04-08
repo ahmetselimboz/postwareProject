@@ -3,7 +3,7 @@ require("../lib/Auth")(passport);
 const Renderer = require("../lib/Renderer");
 const Users = require("../services/Users");
 const bcrypt = require("bcryptjs");
-const mail = require("../lib/sendMail");
+const mail = require("../lib/SendMail");
 const logger = require("../lib/logger/LoggerClass");
 const AuditLogs = require("../lib/AuditLogs");
 const { flashMessage } = require("../lib/Flash");
