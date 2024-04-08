@@ -4,6 +4,8 @@ services:
         image: asb00/posttwareV2
         container_name: posttware-server
         build: .
+        depends_on:
+            - redis
         ports:
             - 4000:4000
     redis:
