@@ -2,7 +2,7 @@ FROM node:21-slim
 
 WORKDIR /v1
 
-COPY package.json ./
+COPY v1/package.json ./
 COPY v1/app.js ./
 
 RUN npm install 
