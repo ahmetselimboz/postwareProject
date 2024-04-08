@@ -7,7 +7,7 @@ class Redis {
   constructor() {
     if (!instance) {
       this.client = createClient({
-        host: config.REDIS_HOST,
+        url: config.REDIS_HOST,
         socket: {
           reconnectStrategy: function (retries) {
             if (retries > 20) {

@@ -16,6 +16,6 @@ module.exports = {
   MAIL_HOST: process.env.MAIL_HOST,
   MAIL_USER: process.env.MAIL_USER,
   MAIL_PASS: process.env.MAIL_PASS,
-  REDIS_HOST: process.env.REDIS_HOST || "127.0.0.1"
+  REDIS_HOST: process.env.REDIS_HOST || "redis://127.0.0.1:6379"
   
 };
