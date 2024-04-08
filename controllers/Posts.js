@@ -1,5 +1,5 @@
 const Renderer = require("../lib/Renderer");
-const mail = require("../lib/sendMail");
+const mail = require("../lib/SendMail");
 const Categories = require("../services/Categories");
 const Posts = require("../services/Posts");
 const Users = require("../services/Users");
