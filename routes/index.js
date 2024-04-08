@@ -1,6 +1,6 @@
 module.exports = {
   "Homepage":{
-    "Users": require("./Users"),
+    "Users": require("./users"),
     "Categories": require("./Categories"),
     "Posts": require("./Posts"),
     "Footers": require("./Footers"),
