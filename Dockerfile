@@ -4,9 +4,9 @@ COPY package.json ./
 
 ENV PORT = 4000
 
-ENV LOG_LEVEL = debug
+ENV LOG_LEVEL = "debug"
 
-ENV MONGODB_CONNECTION_STRING = mongodb+srv://ahmetselimboz46:Aa...2003@selim.f75ymah.mongodb.net/posttwareV2DB
+ENV MONGODB_CONNECTION_STRING = "mongodb+srv://ahmetselimboz46:Aa...2003@selim.f75ymah.mongodb.net/posttwareV2DB?retryWrites=true&w=majority"
 
 ENV TOKEN_EXPIRE_TIME = 1200
 
