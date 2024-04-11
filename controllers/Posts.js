@@ -10,7 +10,8 @@ const client = require("../db/redis");
 
 const getBlogPage = async (req, res) => {
   try {
-    const resultPost = JSON.parse(await client.hGet("Posts", req.params.id))
+    const resultPost = JSON.parse(await client.hGet("Posts", req.params.id));
+    
     const category = await Categories.findOne({
       _id: resultPost.categoryId,
     });
@@ -71,7 +72,6 @@ const postClick = async (req, res, next) => {
     }
 
     await client.hSet("Posts", req.params.id, JSON.stringify(article));
-
 
     res.status(200).send("Tıklama kaydedildi.");
   } catch (error) {
@@ -156,7 +156,7 @@ const getDeletePost = async (req, res) => {
       res.redirect("/admin/posts");
     } else {
       const post = await Posts.delete({ _id: req.params.id });
-      await client.hDel("Posts", post.id)
+      await client.hDel("Posts", post.id);
       logger.info(req.user.username, "Post", "Delete", post);
       AuditLogs.info(req.user.username, "Post", "Delete", post);
       flashMessage(req, {
@@ -250,10 +250,16 @@ const getPostSet = async (req, res, next) => {
         const findPost = await Posts.findOne({ _id: req.params.id });
 
         if (findPost.share == false) {
-          const post = await Posts.updateWhere({ _id: req.params.id }, { share: true });
+          const post = await Posts.updateWhere(
+            { _id: req.params.id },
+            { share: true }
+          );
           await client.hSet("Posts", post.id, JSON.stringify(post));
         } else {
-          const post = await Posts.updateWhere({ _id: req.params.id }, { share: false });
+          const post = await Posts.updateWhere(
+            { _id: req.params.id },
+            { share: false }
+          );
           await client.hSet("Posts", post.id, JSON.stringify(post));
         }
         res.redirect("/admin/allPosts");

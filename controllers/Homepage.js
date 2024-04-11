@@ -7,10 +7,7 @@ const getData = async (req, res) => {
   try {
     await renderService.setData(res);
     renderService.setHead(res);
-    //const value = await connectRedis.set('test', 'HELLO');
-    //const value = await connectRedis.get("FIRSTNAME")
-    //console.log(value);
-    // connectRedis.quit();
+    
     res.render("./frontend/index");
   } catch (error) {
     logger.error(req.user?.username, "Homepage", "Homepage", error);
