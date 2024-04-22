@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const config = require("../../config/environments");
 const convertToDataURI = require("../../lib/DefaultUserImage");
+const { generateObjectUrl } = require("../../lib/Minio");
 
 const schema = mongoose.Schema(
   {
@@ -36,7 +37,7 @@ const schema = mongoose.Schema(
     photo: {
       type: String,
       trim: true,
-      default: convertToDataURI(),
+      default: generateObjectUrl("Default_User"),
     },
     about: {
       type: String,

@@ -17,6 +17,7 @@ const chalk = require("chalk");
 var flash = require("connect-flash");
 const { flashLocals} = require("./lib/Flash");
 const { saveRedisAllPosts } = require("./services/Posts");
+const { bucketExists } = require("./lib/Minio");
 var app = express();
 
 app.set("views", path.join(__dirname, "./views"));
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 emptyData();
 mainAdmin();
 saveRedisAllPosts();
+bucketExists();
 
 const sessionStore = new MongoDBStore({
   uri: config.MONGODB_CONNECTION_STRING,

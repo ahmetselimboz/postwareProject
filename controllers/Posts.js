@@ -7,11 +7,13 @@ const logger = require("../lib/logger/LoggerClass");
 const AuditLogs = require("../lib/AuditLogs");
 const { flashMessage } = require("../lib/Flash");
 const client = require("../db/redis");
+const { base64ToImage } = require("../lib/Minio");
+var isBase64 = require("is-base64");
 
 const getBlogPage = async (req, res) => {
   try {
     const resultPost = JSON.parse(await client.hGet("Posts", req.params.id));
-    
+
     const category = await Categories.findOne({
       _id: resultPost.categoryId,
     });
@@ -156,6 +158,7 @@ const getDeletePost = async (req, res) => {
       res.redirect("/admin/posts");
     } else {
       const post = await Posts.delete({ _id: req.params.id });
+      RemoveImage("Blog_"+post.title.substring(0,12)+".jpeg");
       await client.hDel("Posts", post.id);
       logger.info(req.user.username, "Post", "Delete", post);
       AuditLogs.info(req.user.username, "Post", "Delete", post);
@@ -194,6 +197,13 @@ const getUpdatePost = async (req, res) => {
       options.categoryId = req.body.item;
     }
 
+    if (isBase64(req.body.mainImg, { allowMime: true })) {
+      options.mainImg = await base64ToImage(
+        req.body.mainImg,
+        "Blog_" + req.body.title.substring(0, 12) + ".jpeg"
+      );
+    }
+
     const post = await Posts.updateWhere({ _id: req.body.id }, options);
     await client.hSet("Posts", post.id, JSON.stringify(post));
     logger.info(req.user.username, "Post", "Update", post);
@@ -216,16 +226,23 @@ const PostNewPostPage = async (req, res) => {
     for (let i = 0; i < values.length; i++) {
       tags[i] = values[i]["value"];
     }
-
+    if (isBase64(req.body.mainImg, { allowMime: true })) {
+      var mainImg = await base64ToImage(
+        req.body.mainImg,
+        "Blog_" + req.body.title.substring(0, 12) + ".jpeg"
+      );
+    }
     const post = await Posts.create({
       title: req.body.title,
       desc: req.body.desc,
-      mainImg: req.body.mainImg,
+      mainImg: mainImg,
       content: req.body.editdata,
       categoryId: req.body.item,
       userId: req.user.id,
       tags: tags.map((tag) => ({ tagName: tag })),
     });
+
+
 
     const findUser = await Users.findOne({ _id: req.user.id });
     await mail(

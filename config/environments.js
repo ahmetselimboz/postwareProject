@@ -12,10 +12,23 @@ module.exports = {
   },
   DEFAULT_LANG: process.env.DEFAULT_LANG || "EN",
   SESSION_SECRET: process.env.SESSION_SECRET || 123456,
-  
+
   MAIL_HOST: process.env.MAIL_HOST,
   MAIL_USER: process.env.MAIL_USER,
   MAIL_PASS: process.env.MAIL_PASS,
-  REDIS_HOST: process.env.REDIS_HOST || "redis://127.0.0.1:6379"
-  
+  REDIS_HOST: process.env.REDIS_HOST || "redis://127.0.0.1:6379",
+
+  MINIO_ENDPOINT: process.env.MINIO_ENDPOINT || "localhost",
+
+  MINIO_PORT: process.env.MINIO_PORT || 9000,
+
+  MINIO_USE_SSL: process.env.MINIO_USE_SSL || false,
+
+  MINIO_ACCESS_KEY: process.env.MINIO_ACCESS_KEY || "NZ3lt2PnvqCJpJWg4O0c",
+
+  MINIO_SECRET_KEY: process.env.MINIO_SECRET_KEY || "pdCmaCtZg5b24F7IhLMquTF1BcORCEBM1fBIVSb1",
+
+  DOMAIN: process.env.DOMAIN || "http://localhost",
+
+
 };

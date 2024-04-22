@@ -7,6 +7,9 @@ const mail = require("../lib/SendMail");
 const logger = require("../lib/logger/LoggerClass");
 const AuditLogs = require("../lib/AuditLogs");
 const { flashMessage } = require("../lib/Flash");
+const { base64ToImage } = require("../lib/Minio");
+var isBase64 = require("is-base64");
+
 
 const getLogin = async (req, res) => {
   try {
@@ -210,6 +213,13 @@ const postProfilePage = async (req, res) => {
           linkedin: req.body.linkedin,
         },
       };
+
+      if (isBase64(req.body.mainImg, { allowMime: true })) {
+        options.photo = await base64ToImage(
+          req.body.mainImg,
+          "Author_" + req.body.username + ".jpeg"
+        );
+      }
 
       const updatedData = await Users.updateWhere(
         { _id: req.body.id },
