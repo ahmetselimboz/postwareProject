@@ -36,18 +36,14 @@
               >
               <small><i class="fa fa-eye"></i> <%- resultPost.click %></small>
             </div>
-            <!-- end meta -->
 
-            <!-- end post-sharing -->
           </div>
-          <!-- end title -->
 
           <div class="post">
             <img class="postImg" src="<%- resultPost.mainImg %>" alt="" />
             <hr class="invis" />
             <%- resultPost.content %>
           </div>
-          <!-- end content -->
 
           <div class="blog-title-area">
             <div class="tag-cloud-single">
@@ -63,16 +59,11 @@
               >
               <% } %>
             </div>
-            <!-- end meta -->
 
-            <!-- end post-sharing -->
           </div>
-          <!-- end title -->
 
           <div class="row">
-            <!-- end col -->
           </div>
-          <!-- end row -->
 
           <hr class="invis1" />
 
@@ -105,7 +96,6 @@
                 </div>
                 <% } %>
               </div>
-              <!-- end col -->
 
               <div class="col-lg-6">
                 <% if (next.id) { %>
@@ -134,11 +124,8 @@
                 </div>
                 <% } %>
               </div>
-              <!-- end col -->
             </div>
-            <!-- end row -->
           </div>
-          <!-- end author-box -->
 
           <hr class="invis1" />
 
@@ -153,7 +140,6 @@
                   style="width: 120px; height: 120px; object-fit: cover"
                 />
               </div>
-              <!-- end col -->
 
               <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 <h4>
@@ -198,13 +184,10 @@
                     ><i class="fa fa-link"></i
                   ></a>
                 </div>
-                <!-- end social -->
               </div>
-              <!-- end col -->
             </div>
-            <!-- end row -->
           </div>
-          <!-- end author-box -->
+      
 
           <hr class="invis1" />
 
@@ -214,7 +197,7 @@
               <% for( let index = 0; index < data.length; index++ ) { %>
               <div class="col-lg-6">
                 <div class="blog-box">
-                  <!-- end media -->
+                 
 
                   <div class="post-media">
                     <a href="/blog/<%- data[index].id %>" title="">
@@ -253,27 +236,27 @@
                     >
                   </div>
 
-                  <!-- end meta -->
+                 
                 </div>
-                <!-- end blog-box -->
+               
               </div>
-              <!-- end col -->
+             
               <% } %>
-              <!-- end col -->
+              
             </div>
-            <!-- end row -->
+           
           </div>
-          <!-- end custom-box -->
+          
         </div>
-        <!-- end page-wrapper -->
+        
       </div>
-      <!-- end col -->
+    
 
-      <!-- end col -->
+     
     </div>
-    <!-- end row -->
+   
   </div>
-  <!-- end container -->
+ 
 </section>
 <input type="hidden" name="" value="<%- resultPost._id %>" id="resultPost" />
 <input type="hidden" id="input-title" value="<%- resultPost.title %>" />
