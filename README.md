@@ -15,4 +15,4 @@ Technologies I Use 💻:
 * Frontend: HTML, CSS, Javascript (EJS)
 * Backend: Node.js, Redis, Nodemailer, Minio, Docker, JWT, Passport, Bcrypt
 * Database: MongoDB
-* Server: CapRover
+* Server: AWS, CapRover
