@@ -13,6 +13,6 @@ Link: www.posttware.com
 Technologies I Use 💻:
 
 * Frontend: HTML, CSS, Javascript (EJS)
-* Backend: Node.js, Redis, Nodemailer, Minio, Docker, JWT, Passport, Bcrypt
+* Backend: Node.js, Express.js, Redis, Nodemailer, Minio, Docker, JWT, Passport, Bcrypt
 * Database: MongoDB
 * Server: AWS, CapRover
